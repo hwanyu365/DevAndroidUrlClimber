@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ActivityMain">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+            android:id="@+id/container_ready"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="?android:attr/listPreferredItemPaddingStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="URL" />
+
+        <EditText
+                android:id="@+id/input_url_prefix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <EditText
+                android:id="@+id/input_url_middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <EditText
+                android:id="@+id/input_url_postfix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/setting_item_group_space"
+                android:text="Navigation" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gesture Area: " />
+
+            <EditText
+                    android:id="@+id/input_gesture_area"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter gesture area as percent" />
+        </LinearLayout>
+
+        <CheckBox
+                android:id="@+id/chk_bottom_navigator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use BottomNavigator" />
+
+        <Button
+                android:id="@+id/btn_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/setting_start_btn_margin_top"
+                android:text="START" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/container_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <WebView
+                android:id="@+id/wv_url"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        <LinearLayout
+                android:id="@+id/container_bottom_navigator"
+                style="?android:attr/buttonBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <Button
+                    android:id="@+id/btn_prev"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PREV" />
+
+            <Button
+                    android:id="@+id/btn_next"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NEXT" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
